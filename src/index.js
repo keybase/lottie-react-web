@@ -193,6 +193,7 @@ Lottie.propTypes = {
   ariaLabel: PropTypes.string,
   title: PropTypes.string,
   style: PropTypes.object,
+  animationControl: PropTypes.array,
 };
 
 Lottie.defaultProps = {
