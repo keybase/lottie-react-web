@@ -192,7 +192,7 @@ Lottie.propTypes = {
   ariaRole: PropTypes.string,
   ariaLabel: PropTypes.string,
   title: PropTypes.string,
-  style: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Lottie.defaultProps = {
