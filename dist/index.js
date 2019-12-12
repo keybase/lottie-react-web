@@ -91,21 +91,17 @@ var Lottie = function (_React$Component) {
       this.setAnimationControl();
     }
   }, {
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate(nextProps /* , nextState */) {
-      /* Recreate the animation handle if the data is changed */
-      if (this.options.animationData !== nextProps.options.animationData) {
-        this.deRegisterEvents(this.props.eventListeners);
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.options.animationData !== this.props.options.animationData) {
+        this.deRegisterEvents(prevProps.eventListeners);
         this.destroy();
-        this.options = (0, _extends3.default)({}, this.options, nextProps.options);
+        this.options = (0, _extends3.default)({}, prevProps.options, this.props.options);
         this.anim = _lottieWeb2.default.loadAnimation(this.options);
         this.animApi = _lottie_api2.default.createAnimationApi(this.anim);
-        this.registerEvents(nextProps.eventListeners);
+        this.registerEvents(this.props.eventListeners);
       }
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
+
       if (this.props.isStopped) {
         this.stop();
       } else if (this.props.segments) {
